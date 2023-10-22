@@ -1,3 +1,13 @@
+/*
+ * @Author: nanablast.orz@gmail.com
+ * @Date: 2023-10-22 15:22:02
+ * @LastEditors: nanablast.orz@gmail.com
+ * @LastEditTime: 2023-10-22 15:24:09
+ * @FilePath: /fluwx_worker/example/lib/main.dart
+ * @Description: 
+ * 
+ * Copyright (c) 2023 by nanablast.orz@gmail.com, All Rights Reserved. 
+ */
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -14,7 +24,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   var _result = 'None';
 
-  final schema = 'wwauth38302c6e89219150000XXX';//替换成自己的
+  final schema = 'wwauth38302c6e89219150000XXX'; //替换成自己的
   final corpId = 'ww38302c6e89219XXX';
   final agentId = '1000XXX';
 
@@ -25,21 +35,20 @@ class _MyAppState extends State<MyApp> {
 
     //等待授权结果
     fluwxWorker.responseFromAuth.listen((data) async {
-      if (data.errCode == 0){
-        _result = data.code;  //后续用这个code再发http请求取得UserID
-      }else if (data.errCode == 1){
+      if (data.errCode == 0) {
+        _result = data.code; //后续用这个code再发http请求取得UserID
+      } else if (data.errCode == 1) {
         _result = '授权失败';
-      }else {
+      } else {
         _result = '用户取消';
       }
-      setState(() {
-
-      });
+      setState(() {});
     });
   }
 
   _initFluwx() async {
-        await fluwxWorker.register(schema: schema,corpId: corpId,agentId: agentId);
+    await fluwxWorker.register(
+        schema: schema, corpId: corpId, agentId: agentId);
     var result = await fluwxWorker.isWeChatInstalled();
     print("is installed $result");
   }
@@ -53,9 +62,10 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Column(
           children: <Widget>[
-            OutlineButton(
+            OutlinedButton(
               onPressed: () {
-                fluwxWorker.sendAuth(schema: schema,appId: corpId,agentId: agentId);
+                fluwxWorker.sendAuth(
+                    schema: schema, appId: corpId, agentId: agentId);
               },
               child: Text('企业微信授权'),
             ),

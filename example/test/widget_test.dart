@@ -1,3 +1,13 @@
+/*
+ * @Author: nanablast.orz@gmail.com
+ * @Date: 2023-10-22 15:22:02
+ * @LastEditors: nanablast.orz@gmail.com
+ * @LastEditTime: 2023-10-22 15:24:55
+ * @FilePath: /fluwx_worker/example/test/widget_test.dart
+ * @Description: 
+ * 
+ * Copyright (c) 2023 by nanablast.orz@gmail.com, All Rights Reserved. 
+ */
 // This is a basic Flutter widget test.
 //
 // To perform an interaction with a widget in your test, use the WidgetTester
@@ -8,7 +18,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:fluwx_worker_example/main.dart';
+import '../lib/main.dart';
 
 void main() {
   testWidgets('Verify Platform version', (WidgetTester tester) async {
@@ -18,8 +28,8 @@ void main() {
     // Verify that platform version is retrieved.
     expect(
       find.byWidgetPredicate(
-        (Widget widget) => widget is Text &&
-                           widget.data.startsWith('Running on:'),
+        (Widget widget) =>
+            widget is Text && widget.data!.startsWith('Running on:'),
       ),
       findsOneWidget,
     );
