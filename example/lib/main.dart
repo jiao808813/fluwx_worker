@@ -2,16 +2,14 @@
  * @Author: nanablast.orz@gmail.com
  * @Date: 2023-10-22 15:22:02
  * @LastEditors: nanablast.orz@gmail.com
- * @LastEditTime: 2023-10-22 15:24:09
- * @FilePath: /fluwx_worker/example/lib/main.dart
+ * @LastEditTime: 2023-10-22 15:50:43
+ * @FilePath: /inner_app_flutter_ios/fluwx_worker/example/lib/main.dart
  * @Description: 
  * 
  * Copyright (c) 2023 by nanablast.orz@gmail.com, All Rights Reserved. 
  */
-import 'dart:io';
 
 import 'package:flutter/material.dart';
-
 import 'package:fluwx_worker/fluwx_worker.dart' as fluwxWorker;
 
 void main() => runApp(MyApp());
